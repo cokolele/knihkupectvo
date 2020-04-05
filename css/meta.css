@@ -1,0 +1,116 @@
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #999;
+}
+
+::-ms-input-placeholder {
+  color: #999;
+}
+
+html, body {
+    height: 100%;
+}
+
+svg {
+    display: block;
+}
+
+button, input[type="submit"], input[type="reset"] {
+    display: block;
+    height: auto;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+.inline-flex {
+    display: inline-flex;
+    align-items: center;
+}
+
+.description-wide-accent, .description-wide-grey {
+    line-height: 1.4rem;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 1.02rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #f4a524;
+    white-space: nowrap;
+}
+
+.description-wide-grey {
+    color: #777;
+}
+
+.no-select {
+    user-select: none;
+    -moz-user-select: none;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.title-medium, .title-small, .title-big {
+    margin: 1rem 0;
+    padding: 0 1rem;
+
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 1.38rem;
+    font-weight: 700;
+    color: #283577;
+}
+
+.title-big {
+    margin: 2rem 0 3rem;
+    font-size: 2rem;
+}
+
+.title-small {
+    font-size: 0.9rem;
+}
+
+.color-accent {
+    color: #f4a524;
+}
+
+.color-main {
+    color: #283577;
+}
+
+.a-button {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+}
