@@ -3,7 +3,7 @@
         "host" => "localhost",
         "port" => "3308",
         "user" => "root",
-        "password" => "localrootpass", //dont even try this on my prod servers :d
+        "password" => "localrootpass",
         "database" => "bookstore",
         "charset" => "utf8"
     ];

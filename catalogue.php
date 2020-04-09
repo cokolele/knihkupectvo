@@ -1,6 +1,7 @@
 <?php
     require_once("includes/db.php");
     require_once("includes/utils.php");
+    require_once("includes/session.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +17,7 @@
         <aside>
             <div class="catalogue-categories">
                 <?php
-                    $results = $db->query("SELECT category FROM categories");
+                    $results = $db->query("SELECT category FROM view_categories_complete");
                     $results = $results->fetchAll();
                     foreach ($results as $category) {
                         $active = (isset($_GET["category"]) && $_GET["category"] == $category[0]) ? "active" : "";
@@ -44,8 +45,6 @@ EOF;
                     $count = 0;
 
                     foreach ($results as $book) {
-                        $author = explode(",", $book["authors"])[0];
-
                         if ((   isset($_GET["search"]) &&
                                 (strpos(strip_punctuation($book["title"]), strip_punctuation($_GET["search"])) !== false ||
                                 strpos(strip_punctuation($book["authors"]), strip_punctuation($_GET["search"])) !== false ||

@@ -27,7 +27,7 @@ header {
     width: 100%;
 }
 
-.header-search input {
+.header-search input, .account-form input {
     box-sizing: border-box;
     width: 100%;
     padding: 0 2rem;
@@ -41,7 +41,7 @@ header {
     font-size: 1.25rem;
 }
 
-.header-search input:hover, .header-search input:focus {
+.header-search input:hover, .header-search input:focus, .account-form input:hover, .account-form input:focus {
     box-shadow: 0 1px 10px rgba(57, 57, 57, 0.16), 0 3px 6px rgba(115, 115, 115, 0.23);
 }
 
@@ -194,12 +194,10 @@ header {
 }
 
 .book-showcase-title {
-    font-size: 1.1rem;
+    font-family: 'Merriweather', serif;
     text-decoration: none;
-    color: black;
     margin-bottom: 1rem;
     padding-bottom: 0;
-
     color: #26486c;
     font-size: 1.4rem;
 }
@@ -251,4 +249,269 @@ header {
 
 .catalogue-container .title-big {
     margin-top: 0;
+}
+
+.account-form input[type=text], .account-form input[type=password], .account-form input[type=email] {
+    margin-bottom: 0.8rem;
+    padding-top: 0.35rem;
+    padding-bottom: 0.35rem;
+    font-size: 1.18rem;
+    line-height: 3rem;
+}
+
+.account-form input[type=submit] {
+    line-height: 3rem;
+    width: 14rem;
+    margin: 0.8rem 0 1.5rem 0;
+}
+
+.account-form p {
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 1.2rem;
+    padding-left: 2px;
+}
+
+.account-form a {
+    text-decoration: none;
+}
+
+.account-form .error {
+    color: red;
+}
+
+.account-form .error > span {
+    font-size: 2rem;
+    position: relative;
+    top: 0.25rem;
+}
+
+.bookpage-container {
+    display:flex;
+    justify-content: center;
+    margin: 2rem;
+}
+
+.bookpage-container aside {
+    width: 40%;
+    margin-right: 4.2rem;
+}
+
+.bookpage-container aside > img {
+    width: 100%;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+.bookpage-container main {
+    width: 45%;
+    font-family: 'Inria Sans', sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bookpage-title {
+    margin-bottom: 1.5rem;
+    font-family: 'Merriweather', serif;
+    font-size: 2.6rem;
+    color: #26486c;
+}
+
+.bookpage-authors {
+    margin: 1.4rem 0;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+.bookpage-description {
+    margin: 1.4rem 0;
+    font-size: 1.1rem;
+    color: #222;
+}
+
+.bookpage-details {
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.bookpage-details > *:nth-child(2n + 1), .bookpage-details > *:nth-child(2n) {
+    flex-basis: 60%;
+    margin: 0.3rem 0;
+    font-size: 1.2rem;
+    color: #222;
+}
+
+.bookpage-details > *:nth-child(2n + 1) {
+    flex-basis: 40%;
+    font-weight: 700;
+    color: #333;
+}
+
+.bookpage-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.bookpage-cost {
+    font-size: 3rem;
+    color: #f4a524;
+    margin-right: 2rem;
+}
+
+.bookpage-buy-button, .order-continue, .order-continue-blank {
+    font-family: 'Inria Sans', sans-serif;
+    padding: 1rem 1.2rem;
+    border: 2px solid #f4a524;
+    border-radius: 0.4rem;
+
+    color: #f4a524;
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.bookpage-buy-button.disabled, .order-continue.disabled, .order-continue-blank.disabled {
+    border-color: #555;
+    color: #555;
+    pointer-events: none;
+}
+
+.cart-container {
+    border: 1px solid #b0b0b0;
+    border-width: 1px 0;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.cart-item-img {
+    width: 3rem;
+    min-height: 3rem;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.cart-item > span, .cart-item > a {
+    margin-left: 1rem;
+}
+
+.cart-item-title {
+    font-family: 'Merriweather', serif;
+    text-transform: capitalize;
+    text-decoration: none;
+    color: #26486c;
+    font-size: 1.15rem;
+}
+
+.cart-item-isbn {
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.cart-item-cost {
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 1.4rem;
+}
+
+.cart-item-remove {
+    color: red;
+    font-size: 1.5rem;
+}
+
+.order-continue-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-continue-blank {
+    border-color: #283577;
+    color: #283577;
+    margin: 2rem 0;
+    padding: 0.4rem 1.4rem;
+}
+
+.order-continue {
+    border: 0;
+    background-color: #283577;
+    color: white;
+    margin: 2rem 0;
+    padding: 0.6rem 1.4rem;
+}
+
+.order-continue.disabled {
+    border: 2px solid #555;
+    background-color: white;
+}
+
+.address-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.address-form > * {
+    padding: 0 0.6rem 1rem 0.6rem;
+    box-sizing: border-box;
+}
+
+.address-form input {
+    width: 100%;
+    padding: 0.4rem 0.6rem;
+    box-sizing: border-box;
+    border: 1px solid #d2d2d2;
+    border-radius: 0.3rem;
+
+    font-size: 1.15rem;
+}
+
+.address-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #555;
+    font-size: 1.15rem;
+}
+
+.address-form input[type=submit] {
+    border: 0;
+    background-color: #283577;
+    color: white;
+    padding: 0.6rem 1.4rem;
+
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.address-form .error {
+    color: red;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.form-radios {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-radios input{
+    width: 2rem;
+    height: 2rem;
+    margin: 0 1rem;
+    cursor: pointer;
+}
+
+.form-radios label {
+    width: auto;
+    flex-grow: 1;
+    color: #222;
+    margin: 0 0 0.2rem 0;
+    font-size: 1.2rem;
+    cursor: pointer;
 }

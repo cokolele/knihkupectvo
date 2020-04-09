@@ -13,7 +13,8 @@ const config = {
     host: "localhost",
     user: "root",
     password: "localrootpass",
-    database: "bookstore"
+    database: "bookstore",
+    port: 3308
 };
 
 const asyncDBInit = (config) => new Promise((resolve, reject) => {
@@ -48,15 +49,15 @@ async function main() {
         pageCount: null,
         publishedDate: null,
         thumbnailUrl: null,
-        descriptionShort: null,
-        descriptionLong: null,
+        shortDescription: null,
+        longDescription: null,
     }
 
     let statuses = [];
     let authors = [];
     let categories = [];
 
-    let sql = "INSERT INTO books VALUES ";
+    let sql = "INSERT INTO book VALUES ";
     for (let book of books) {
         book = { ...book_required_properties, ...book };
         // cena = 20% z čísla od 5 do 90 + náhodná desatina + 1:2 šanca buď 9 stotín alebo 0 stotín
@@ -69,7 +70,7 @@ async function main() {
             book.publishedDate = new Date(book.publishedDate["$date"].slice(0,10)).getTime();
 
         if (!statuses.includes(book.status)) {
-            await asyncQuery(db, "INSERT INTO books_statuses VALUES (0, ?)", [book.status]);
+            await asyncQuery(db, "INSERT INTO book_status VALUES (0, ?)", [book.status]);
             statuses.push(book.status);
         }
 
@@ -83,18 +84,18 @@ async function main() {
 
         sql += mysql.format(
             "(0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?),",
-            [book.title, book.isbn, book.pageCount, book.publishedDate, book.thumbnailUrl, book.descriptionShort, book.descriptionLong, book.cost, book.availableCount, book.soldCount, statuses.indexOf(book.status) + 1]
+            [book.title, book.isbn, book.pageCount, book.publishedDate, book.thumbnailUrl, book.shortDescription, book.longDescription, book.cost, book.availableCount, book.soldCount, statuses.indexOf(book.status) + 1]
         );
     }
     await asyncQuery(db, sql.slice(0, -1));
 
-    sql = "INSERT INTO authors VALUES ";
+    sql = "INSERT INTO author VALUES ";
     for (const author of authors) {
         sql += mysql.format("(0, ?),", [author]);
     }
     await asyncQuery(db, sql.slice(0, -1));
 
-    sql = "INSERT INTO books_authors VALUES ";
+    sql = "INSERT INTO book_author VALUES ";
     books.forEach((book, i) => {
         book.authors.forEach(author => {
             if (author)
@@ -103,13 +104,13 @@ async function main() {
     });
     await asyncQuery(db, sql.slice(0, -1));
 
-    sql = "INSERT INTO categories VALUES ";
+    sql = "INSERT INTO category VALUES ";
     for (const category of categories) {
         sql += mysql.format("(0, ?),", [category]);
     }
     await asyncQuery(db, sql.slice(0, -1));
 
-    sql = "INSERT INTO books_categories VALUES ";
+    sql = "INSERT INTO book_category VALUES ";
     books.forEach((book, i) => {
         book.categories.forEach(category => {
             if (category)

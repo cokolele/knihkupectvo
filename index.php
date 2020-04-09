@@ -1,6 +1,7 @@
 <?php
-    require_once("includes/db.php");
     require_once("includes/utils.php");
+    require_once("includes/db.php");
+    require_once("includes/session.php");
 
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
@@ -25,7 +26,7 @@
         <div class="categories-carousel">
             <div class="categories-carousel-controller no-select">❯</div>
             <?php
-                $results = $db->query("SELECT category FROM categories");
+                $results = $db->query("SELECT * FROM view_categories_complete");
                 $results = $results->fetchAll();
                 foreach ($results as $category) {
                     echo <<<EOF

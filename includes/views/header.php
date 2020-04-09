@@ -22,8 +22,13 @@
         <div>
             <a href="/knihkupectvo/user.php"> <?php require("icons/user.html"); ?> </a>
         </div>
-        <div>
-            <a href="/knihkupectvo/cart.php"> <?php require("icons/cart.html"); ?> </a>
-        </div>
+
+        <?php
+            if (isset($_SESSION["logged"])) {
+                echo "<div><a href=\"/knihkupectvo/cart.php\">";
+                require("icons/cart.html");
+                echo "</a></div>";
+            }
+        ?>
     </div>
 </header>
