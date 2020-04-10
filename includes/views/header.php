@@ -22,12 +22,19 @@
         <div>
             <a href="/knihkupectvo/user.php"> <?php require("icons/user.html"); ?> </a>
         </div>
-
         <?php
             if (isset($_SESSION["logged"])) {
-                echo "<div><a href=\"/knihkupectvo/cart.php\">";
+                $cart_items_count = $db->query("SELECT id, available_count, cost FROM view_carts_complete WHERE id_customer = " . $_SESSION["logged"]["id"]);
+                $cart_items_count = count($cart_items_count->fetchAll());
+
+                if ($cart_items_count)
+                    $cart_items_count = "<div class=\"cart-count no-select\">$cart_items_count</div>";
+                else
+                    $cart_items_count = "";
+
+                echo "<div class=\"cart-icon-container\"><a href=\"/knihkupectvo/cart.php\">";
                 require("icons/cart.html");
-                echo "</a></div>";
+                echo "</a>$cart_items_count</div>";
             }
         ?>
     </div>

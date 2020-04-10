@@ -83,5 +83,8 @@ EOF;
         ?>
     </div>
     <a class="a-button title-small text-center" href="/knihkupectvo/catalogue.php">Zobraziť všetky</a>
+    <?php
+        require("includes/views/footer.php");
+    ?>
 </body>
 </html>

@@ -19,7 +19,7 @@
         require_once("../includes/views/header.php");
     ?>
     <div class="text-center title-big">Sumarizácia</div>
-    <form method="post" action="/knihkupectvo/order/transaction.php">
+    <form method="post" action="/knihkupectvo/order/process.php">
         <input type="hidden" name="shipping_method" value="<?php if (isset($_POST["shipping_method"])) echo $_POST["shipping_method"] ?>">
         <input type="hidden" name="payment_method" value="<?php if (isset($_POST["payment_method"])) echo $_POST["payment_method"] ?>">
         <div class="title-medium three-q-width">Knihy v košíku</div>
