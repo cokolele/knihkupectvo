@@ -14,7 +14,7 @@
             $customer = $stmt->fetchAll()[0];
 
             $_SESSION["logged"] = $customer;
-            header("Location:  /knihkupectvo/user.php");
+            header("Location:  /knihkupectvo");
             exit;
         }
     }

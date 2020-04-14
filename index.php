@@ -71,7 +71,7 @@ EOF;
                 template_book_showcase($book);
         ?>
     </div>
-    <a class="a-button title-small text-center" href="/knihkupectvo/catalogue.php">Zobraziť všetky</a>
+    <a class="a-button title-small text-center" href="/knihkupectvo/catalogue.php?sort=popular">Zobraziť všetky</a>
     <div class="title-big text-left">Novinky</div>
     <div class="books-container">
         <?php
@@ -82,7 +82,7 @@ EOF;
                 template_book_showcase($book);
         ?>
     </div>
-    <a class="a-button title-small text-center" href="/knihkupectvo/catalogue.php">Zobraziť všetky</a>
+    <a class="a-button title-small text-center" href="/knihkupectvo/catalogue.php?sort=new">Zobraziť všetky</a>
     <?php
         require("includes/views/footer.php");
     ?>

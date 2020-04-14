@@ -48,7 +48,7 @@ async function main() {
         isbn: null,
         pageCount: null,
         publishedDate: null,
-        thumbnailUrl: null,
+        thumbnailUrl: "/knihkupectvo/images/missing.jpg",
         shortDescription: null,
         longDescription: null,
     }
