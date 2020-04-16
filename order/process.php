@@ -75,8 +75,8 @@
             $values .= " id = $item_id";
         }
 
-        $decrement_available_books = $db->prepare("UPDATE book SET available_count = available_count - 1 WHERE" . $values);
-        $decrement_available_books->execute();
+        $update_books = $db->prepare("UPDATE book SET available_count = available_count - 1, sold_count = sold_count + 1 WHERE" . $values);
+        $update_books->execute();
 
         $db->commit();
         header("Location:  /knihkupectvo/order/successful.php");

@@ -64,7 +64,7 @@ EOF;
     <div class="title-big text-left">Najpredávanejšie</div>
     <div class="books-container">
         <?php
-            $results = $db->query("SELECT id, title, thumbnail_url, cost, authors, available_count FROM view_books_complete ORDER BY sold_count LIMIT 9");
+            $results = $db->query("SELECT id, title, thumbnail_url, cost, authors, available_count FROM view_books_complete ORDER BY sold_count DESC LIMIT 9");
             $results = $results->fetchAll();
 
             foreach ($results as $book)

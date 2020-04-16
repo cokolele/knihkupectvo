@@ -59,6 +59,7 @@ CREATE TABLE customer (
     id int NOT NULL AUTO_INCREMENT,
     username varchar(55) NOT NULL,
     password char(60) NOT NULL,
+    admin boolean NOT NULL,
     email varchar(100) NOT NULL,
     phone varchar(13),
     first_name varchar(35),
@@ -129,11 +130,19 @@ CREATE VIEW view_books_complete AS SELECT book.id, title, isbn, page_count, publ
     JOIN category ON book_category.id_category = category.id
     GROUP BY book.id;
 
+CREATE VIEW view_books_complete_values AS SELECT book.id, title, isbn, page_count, publish_date, thumbnail_url, description_short, description_long, cost, available_count, sold_count, book_status.id AS status, GROUP_CONCAT(DISTINCT(author.id) SEPARATOR "|") AS authors, GROUP_CONCAT(DISTINCT(category.id) SEPARATOR "|") AS categories FROM book
+    JOIN book_status ON book.id_status = book_status.id
+    JOIN book_author ON book.id = book_author.id_book
+    JOIN author ON book_author.id_author = author.id
+    JOIN book_category ON book.id = book_category.id_book
+    JOIN category ON book_category.id_category = category.id
+    GROUP BY book.id;
+
 CREATE VIEW view_categories_complete AS SELECT category FROM category;
 
 CREATE VIEW view_customers_basic AS SELECT id, username, password, email FROM customer;
 
-CREATE VIEW view_customers_complete AS SELECT customer.id, username, password, email, phone, first_name, last_name, address, zip_code, city, COUNT(transaction.id) AS transactions_count FROM customer
+CREATE VIEW view_customers_complete AS SELECT customer.id, username, password, admin, email, phone, first_name, last_name, address, zip_code, city, COUNT(transaction.id) AS transactions_count FROM customer
     LEFT JOIN transaction ON transaction.id_customer=customer.id
     GROUP BY customer.id;
 
@@ -152,22 +161,21 @@ testing
 */
 
 INSERT INTO customer VALUES
-    (0, "root", "$2y$10$0csBVDNa9eewWcKLXKxute90MAWOp2GG65iN2MBI1opwG0n/bFF0W", "email@l", null, null, null, null, null, null),
-    (0, "peter", "$2y$10$0csBVDNa9eewWcKLXKxute90MAWOp2GG65iN2MBI1opwG0n/bFF0W ", "emaill@l", "+421905", "Peter", "Petrovič", "Havanská 2", "04014", "Prešov"),
-    (0, "lukas", "$2y$10$0csBVDNa9eewWcKLXKxute90MAWOp2GG65iN2MBI1opwG0n/bFF0W ", "emailll@l", "+421904", "Lukáš", "Petrovič", "Havanská 2", "04014", "Prešov");
+    (0, "root", "$2y$10$0csBVDNa9eewWcKLXKxute90MAWOp2GG65iN2MBI1opwG0n/bFF0W", true, "email@email", null, null, null, null, null, null),
+    (0, "priklad", "$2y$10$Die4MCpG3Lo/mo6qIfnAd.YGX1JCmFlz1cGT/Cwt9Pt6/IXy0ogi6", false, "priklad@priklad.sk", "+421901234567", "Príklad", "Príkladovič", "Príkladová 1", "01337", "Príkladovo");
+
+INSERT INTO cart VALUES
+    (2, 105),
+    (2, 115);
 
 INSERT INTO transaction VALUES
-    (0, 10, 28.69, 1, 1, 1),
-    (0, 20, 38.69, 2, 3, 3),
-    (0, 30, 48.69, 1, 4, 4);
+    (0, 1, 420.69, 1, 1, 1),
+    (0, 1, 420.69, 2, 1, 1);
 
 INSERT INTO transaction_book VALUES
     (1, 10),
     (1, 20),
     (1, 30),
     (1, 40),
-    (2, 15),
-    (2, 25),
-    (3, 35),
-    (3, 45),
-    (3, 55);
+    (2, 155),
+    (2, 165);

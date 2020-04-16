@@ -659,3 +659,93 @@ footer a {
     border-bottom-color: #283577;
     padding: 0.5rem 0.8rem;
 }
+
+fieldset {
+    border-color: rgba(255, 0, 0, 0.8);
+    border-width: 1px;
+    box-sizing: border-box;
+    margin: 0 2rem 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+legend {
+    color: rgba(255, 0, 0, 0.8);
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 1rem;
+    padding: 0 0.4rem;
+}
+
+fieldset .a-button {
+    border: 0;
+    padding: 0.6rem 1.4rem;
+    margin-left: 1rem;
+    background-color: rgba(255, 0, 0, 0.8);
+    border-radius: 0.3rem;
+    color: white;
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.bookpage-edit-container {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.bookpage-edit-container > div {
+    box-sizing: border-box;
+    padding: 0.8rem 1.8rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bookpage-edit-container label {
+    flex-basis: 25%;
+    box-sizing: border-box;
+    padding-right: 1.8rem;
+
+    font-size: 1.4rem;
+    color: #222;
+}
+
+.bookpage-edit-container input, .bookpage-edit-container .inline-inputs {
+    flex-grow: 1;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.bookpage-edit-container textarea {
+    max-width: 75%;
+    flex-grow: 1;
+    color: #333;
+    font-size: 1rem;
+}
+
+.bookpage-edit-container input, .bookpage-edit-container textarea, .bookpage-edit-container select {
+    padding: 0.5rem 1rem;
+    border: 1px solid #a8b5f9;
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.bookpage-edit-container button {
+    padding: 0.5rem 1.4rem;
+    box-sizing: border-box;
+    border: 2px solid #a8b5f9;
+    border-radius: 0.4rem;
+    max-width: 10rem;
+}
+
+.bookpage-edit-container input[type=submit] {
+    border: none;
+    width: 14rem;
+    color: white;
+    align-self: flex-end;
+
+    margin-bottom: 8rem;
+}

@@ -39,7 +39,7 @@
             $error = "Rovnaké prihlasovacie meno alebo E-mail je už registrované";
             return;
         } else {
-            $stmt = $db->prepare("INSERT INTO customer VALUES (0, ?, ?, ?, null, null, null, null, null, null)");
+            $stmt = $db->prepare("INSERT INTO customer VALUES (0, ?, ?, false, ?, null, null, null, null, null, null)");
             $stmt->execute([$username, password_hash($password, PASSWORD_BCRYPT), $email]);
 
             $stmt = $db->prepare("SELECT * FROM view_customers_complete WHERE username = ?");

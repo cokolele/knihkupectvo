@@ -157,3 +157,26 @@ ul {
 form input[type=submit] {
     cursor: pointer;
 }
+
+.inline-inputs {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inline-inputs > * {
+    margin: 0 1.8em;
+}
+
+.inline-inputs > *:first-child {
+    margin-left: 0;
+}
+
+.inline-inputs > *:last-child {
+    margin-right: 0;
+}
+
+.inline-inputs > input, .inline-inputs > select, .inline-inputs > button {
+    flex-grow: 1;
+    width: 100%;
+}

@@ -34,6 +34,19 @@
     <?php
         require_once("includes/views/header.php");
     ?>
+
+    <?php
+        if (isset($_SESSION["logged"]) && $_SESSION["logged"]["admin"]) {
+            echo <<<EOF
+    <fieldset>
+        <legend>admin menu</legend>
+        <a href="/knihkupectvo/admin/add_book.php?id={$book["id"]}" class="a-button">Upraviť knihu</a>
+        <a href="/knihkupectvo/admin/remove_book.php?id={$book["id"]}" class="a-button">Odstrániť knihu</a>
+    </fieldset>
+EOF;
+        }
+    ?>
+
     <span class="title-medium">
         <a href="/knihkupectvo/catalogue.php" class="a-inline">Katalóg</a>
         🠆
@@ -66,6 +79,7 @@
                         if (!empty($book["isbn"]))echo "<div>ISBN</div><div>" . $book["isbn"] . "</div>";
                         if (!empty($book["page_count"])) echo "<div>Počet strán</div><div>" . $book["page_count"] . "</div>";
                         if (!empty($book["status"])) echo "<div>Status vydania</div><div>" . $book["status"] . "</div>";
+                        if (!empty($book["publish_date"])) echo "<div>Dátum vydania</div><div>" . date("d.m.Y", $book["publish_date"]) . "</div>";
                         echo "<div>Počet predaných kusov</div><div>" . $book["sold_count"] . "</div>";
                         echo "<div>Počet kusov na sklade</div><div>" . $book["available_count"] . "</div>";
                     ?>

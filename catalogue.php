@@ -13,6 +13,17 @@
         require_once("includes/views/header.php");
     ?>
 
+    <?php
+        if (isset($_SESSION["logged"]) && $_SESSION["logged"]["admin"]) {
+            echo <<<EOF
+    <fieldset>
+        <legend>admin menu</legend>
+        <a href="/knihkupectvo/admin/add_book.php" class="a-button">Pridať knihu</a>
+    </fieldset>
+EOF;
+        }
+    ?>
+
     <div class="catalogue-container">
         <aside>
             <div class="catalogue-categories">
