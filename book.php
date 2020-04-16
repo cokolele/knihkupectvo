@@ -79,7 +79,7 @@ EOF;
                         if (!empty($book["isbn"]))echo "<div>ISBN</div><div>" . $book["isbn"] . "</div>";
                         if (!empty($book["page_count"])) echo "<div>Počet strán</div><div>" . $book["page_count"] . "</div>";
                         if (!empty($book["status"])) echo "<div>Status vydania</div><div>" . $book["status"] . "</div>";
-                        if (!empty($book["publish_date"])) echo "<div>Dátum vydania</div><div>" . date("d.m.Y", $book["publish_date"]) . "</div>";
+                        if (!empty($book["publish_date"])) echo "<div>Dátum vydania</div><div>" . date("d.m.Y", substr($book["publish_date"], 0, -3)) . "</div>";
                         echo "<div>Počet predaných kusov</div><div>" . $book["sold_count"] . "</div>";
                         echo "<div>Počet kusov na sklade</div><div>" . $book["available_count"] . "</div>";
                     ?>

@@ -163,7 +163,7 @@ EOF;
         </div>
         <div>
             <label for="cost">Cena</label>
-            <input id="cost" name="cost" type="number" value="{$book["cost"]}" required>
+            <input id="cost" name="cost" type="number" step="0.01" value="{$book["cost"]}" required>
         </div>
         <div>
             <label for="available_count">Počet kusov na sklade</label>
