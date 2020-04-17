@@ -34,15 +34,13 @@
         ];
 
         foreach ($_GET as $key => $value) {
-            if (empty($value) || empty(str_replace("|", "", $value)))
+            if ((empty($value) || empty(str_replace("|", "", $value))) && $value != "0")
                 $_GET[$key] = null;
         }
 
         $book = array_merge($defaultBook, $_GET);
 
-        var_dump($book);
-
-        if (empty($book["title"]) || empty($book["cost"]) || empty($book["available_count"]) || empty($book["status"]))
+        if ((empty($book["title"]) || !is_numeric($book["cost"]) || !is_numeric($book["available_count"])) || $book["status"] === null || trim($book["status"]) === "")
             invalid_data();
 
         $stmt = $db->prepare("SELECT * FROM view_books_complete_values WHERE id = ?");
@@ -228,7 +226,7 @@
         }
 
         $db->commit();
-        header("Location:  /knihkupectvo/book.php?id=_" . $book["id"]);
+        header("Location:  /knihkupectvo/book.php?name=_" . $book["id"]);
         exit;
     } catch (Exception $e) {
         $db->rollBack();

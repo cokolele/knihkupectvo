@@ -27,6 +27,7 @@ EOF;
     <div class="catalogue-container">
         <aside>
             <div class="catalogue-categories">
+                <a class="catalogue-category a-button title-small text-left" href="/knihkupectvo/catalogue.php">VŠETKY</a>
                 <?php
                     $results = $db->query("SELECT category FROM view_categories_complete");
                     $results = $results->fetchAll();

@@ -158,6 +158,11 @@ CREATE VIEW view_carts_complete AS SELECT id_customer, view_books_complete.id, t
 
 /*
 testing
+
+    !!!
+    najprv treba insertnut data
+    "#> npm install"
+    "#> node ./insert_data.js"
 */
 
 INSERT INTO customer VALUES
