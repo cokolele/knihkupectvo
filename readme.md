@@ -6,4 +6,9 @@ minimal js
 
 for school project
 
-https://www.terraria-map-editor.eu/knihkupectvo/
+https://terraria-map-editor.com/knihkupectvo/
+
+
+## Preview
+
+![Preview of software](https://raw.githubusercontent.com/cokolele/knihkupectvo/master/preview.png)
